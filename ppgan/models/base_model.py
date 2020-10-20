@@ -37,7 +37,7 @@ class BaseModel(ABC):
             opt.output_dir,
             opt.model.name)  # save all the checkpoints to save_dir
 
-        self.loss = OrderedDict()
+        self.losses = OrderedDict()
         self.model_names = []
         self.visual_names = []
         self.optimizers = []
@@ -115,7 +115,7 @@ class BaseModel(ABC):
 
     def get_current_losses(self):
         """Return traning losses / errors. train.py will print out these errors on console, and save them to a file"""
-        return self.loss
+        return self.losses
 
     def set_requires_grad(self, nets, requires_grad=False):
         """Set requies_grad=Fasle for all the networks to avoid unnecessary computations
